@@ -1,0 +1,19 @@
+import os
+
+from smyt_blog.settings import BASE_DIR
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'smyt_blog_real',
+        'USER': 'user',
+        'PASSWORD': '12345',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+
+
+BASE_NAME = ''
+MEDIA_URL = '/{}media/'.format(BASE_NAME)
+STATIC_URL = '/{}static/'.format(BASE_NAME)

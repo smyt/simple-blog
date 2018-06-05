@@ -1,0 +1,15 @@
+{
+  "name": "smyt-blog-site",
+  "version": "1.0.0",
+  "main": "assets/js/index.js",
+  "repository": "git@bitbucket.org:smytteam/smyt_blog_site.git",
+  "author": "m <mmailm@mail.ru>",
+  "license": "MIT",
+  "scripts": {
+    "build_styles": "node-sass-chokidar ./assets/scss --source-map=true --output-style=compressed -o ./assets/build",
+    "watch_styles": "node-sass-chokidar ./assets/scss --source-map=true -o ./assets/build --watch"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "^0.0.3"
+  }
+}

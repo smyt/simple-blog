@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+{% load static i18n %}
+
+{% block content %}
+    <section class="blog">
+        <div class="container">
+            <div class="posts">
+                {% include "partials/posts_list.html" %}
+            </div>
+            {% if has_more %}
+                <div class="blog-btn" data-last-published="{{ last_published }}">
+                    <a href="#">{% trans 'View previous results' %}</a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}
+

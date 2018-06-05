@@ -1,0 +1,76 @@
+from fabric.api import env
+from fabric.api import get
+from fabric.api import local
+from fabric.api import prefix
+from fabric.api import run
+from fabric.context_managers import lcd, cd
+
+env.use_ssh_config = True
+
+LOCAL = False
+
+CONFIG = {
+    'dev': {
+        'host': 'user@server',
+        'activate': 'source /home/user/virtualenv/blog/bin/activate',
+        'code_folder': '/home/user/blog'
+    }
+}
+
+
+def loc():
+    global LOCAL
+    LOCAL = True
+
+
+def set_host(host):
+    env.curconfig = CONFIG[host]
+    env.hosts = [env.curconfig['host']]
+
+
+def dev():
+    set_host('dev')
+
+
+def cdr(path):
+    if LOCAL:
+        return lcd(path)
+    return cd(path)
+
+
+def runc(command):
+    if LOCAL:
+        local(command)
+    else:
+        run(command)
+
+
+def deploy():
+    with cd(env.curconfig['code_folder']):
+        runc("git pull")
+        with prefix(env.curconfig['activate']):
+            runc("python manage.py makemigrations")
+            runc("python manage.py migrate")
+            runc("yarn install")
+            runc("yarn build_styles")
+            runc("python manage.py collectstatic --noinput")
+    restart_server()
+
+
+def restart_server():
+    with cd(env.curconfig['code_folder']):
+        with prefix(env.curconfig['activate']):
+            runc("sudo kill -HUP `cat blog.pid`")
+
+
+def dump():
+    with cd(env.curconfig['code_folder']):
+        runc("mysqldump -uroot blog > blog_dump.sql")
+        get("blog_dump.sql", "blog_dump.sql")
+
+
+def dump_media():
+    with cd(env.curconfig['code_folder']):
+        runc("tar cvf media.tar media")
+        get("media.tar", 'media.tar')
+        local("tar xvf media.tar")

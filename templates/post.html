@@ -1,0 +1,83 @@
+{% extends "_base.html" %}
+{% load static i18n %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block head %}
+    <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="{{ post.title }}" />
+    <meta property="og:description"   content="{{ post.short_description|striptags }}" />
+    {% if post.image %}
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}"/>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <section class="post">
+        <div class="container">
+            <div class="post-title">
+                <h1>{{ post.title }}</h1>
+                <ul>
+                    <li>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <p>{{ post.author.name }}, {{ post.author.appointment }}
+                        <p>
+                    </li>
+                    <li>
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                        <span>{{ post.published_at|date:"d b Y" }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="post-content">
+                <div class="post-content-about">
+                    {{ post.text|safe }}
+                </div>
+            </div>
+            <div class="post-btns">
+                <ul>
+                    <li class="facebook">
+                        <a href="#" onclick="share_fb('{{ request.build_absolute_uri }}');return false;" rel="nofollow" target="_blank">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li class="twitter">
+                        <a href="#" onclick="share_twitter('{{ request.build_absolute_uri }}');return false;" rel="nofollow" target="_blank">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                            Twitter
+                        </a>
+                    </li>
+                    <li class="vk">
+                        <a href="#" onclick="share_vk('{{ request.build_absolute_uri }}');return false;" rel="nofollow" target="_blank">
+                            <i class="fab fa-vk" aria-hidden="true"></i>
+                            VK
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="fb-root"></div>
+            <script>
+                function share_fb(url) {
+                    url = 'https://www.facebook.com/sharer/sharer.php?u='+url;
+                    {% if post.image %}
+                        url += "&picture={{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}";
+                    {% endif %}
+                    window.open(url,'facebook-share-dialog',"width=626, height=436")
+                }
+
+                function share_twitter(url) {
+                    window.open('http://twitter.com/share?url=' + url, 'twitter-share-dialog', "width=626, height=436")
+                }
+
+                function share_vk(url) {
+                    window.open('https://vk.com/share.php?title={{ post.title }}&noparse=false&url=' + url, 'vk-share-dialog', "width=626, height=436")
+                }
+            </script>
+            <div class="post-link">
+                <a href="{% url 'blog:index' %}">{% trans 'View all posts' %}</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,641 @@
+@import "variables";
+@import "mixins";
+@import "fontawesome-all.min";
+@import "./highlight/foundation";
+
+
+@font-face {
+    font-family: $Lato; /* Имя шрифта */
+    src: url(../webfonts/Lato.ttf) format("truetype"),
+    url('../webfonts/Lato.eot') format('embedded-opentype'),
+    url('../webfonts/Lato-Regular.svg') format('svg'),
+    url('../webfonts/Lato.woff2') format('woff2'),
+    url('../webfonts/Lato-Regular.woff') format('woff');
+}
+
+html, body {
+    border: 0;
+    font-family: Lato, sans-serif;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+div, span, object, iframe, img, table, caption, thead, tbody,
+tfoot, tr, tr, td, article, aside, canvas, details, figure, hgroup, menu,
+nav, footer, header, section, summary, mark, audio, video {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cit, code,
+del, dfn, em, ins, q, samp, small, strong, sub, sup, b, i, hr, dl, dt, dd,
+ol, ul, li, fieldset, legend, label {
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+    display: block;
+}
+
+table {
+    border-collapse: separate;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table caption, table th, table td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+a img {
+    border: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+/* Main Styles */
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    outline: 0 !important;
+}
+
+p {
+    cursor: default;
+}
+
+.container {
+    width: 980px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    caption {
+        text-align: left;
+        vertical-align: middle;
+    }
+    th {
+        text-align: left;
+        vertical-align: middle;
+    }
+    td {
+        text-align: left;
+        vertical-align: middle;
+    }
+}
+
+figure {
+    display: block;
+    img {
+        display: block;
+    }
+}
+
+footer {
+    display: block;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .footer-content {
+        width: 980px;
+        margin: 0 auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        ul {
+            display: flex;
+            justify-content: space-between;
+            li {
+                list-style: none;
+                line-height: 1.333em;
+                font-size: 1em;
+                color: $color_mirage_approx;
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+@import "header";
+
+section {
+    display: block;
+    @import "blog";
+    @import "post";
+}
+
+p {
+    cursor: default;
+}
+
+a {
+    outline: 0 !important;
+    img {
+        border: 0;
+    }
+}
+
+figcaption {
+    display: block;
+}
+
+:focus {
+    outline: 0;
+}
+
+* {
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: $Lato, $SansSerif;
+}
+
+.container {
+    width: 980px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media(max-width: 575px) {
+    .container {
+        width: 100%;
+    }
+    section {
+        &.post {
+            .post-title {
+                ul {
+                    padding-top: 15px;
+                    flex-direction: column;
+                    li {
+                        padding-bottom: 5px;
+                        i {
+                            font-size: 16px;
+                        }
+                        p {
+                            font-size: 15px;
+                        }
+                        span {
+                            font-size: 15px;
+                        }
+                    }
+                }
+                h2 {
+                    font-size: 20px;
+                }
+            }
+            .container {
+                width: 100%;
+                .post-btns ul li {
+                    padding-bottom: 10px;
+                }
+            }
+            .post-content {
+                padding-top: 15px;
+                .post-content-img {
+                    padding-top: 15px;
+                    width: 100%;
+                }
+                .post-content-about {
+                    padding-top: 15px;
+                    p {
+                        padding-bottom: 10px;
+                        font-size: 15px;
+                    }
+                }
+                .post-content-text p {
+                    font-size: 18px;
+                }
+            }
+            .post-btns {
+                padding-top: 15px;
+                ul {
+                    flex-direction: column;
+                    li a {
+                        font-size: 13px;
+                        max-width: 181px;
+                    }
+                }
+            }
+            .post-link {
+                padding-top: 15px;
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+        &.blog {
+            .blog-container {
+                width: 100%;
+            }
+            .blog-content {
+                display: block;
+                min-height: 800px;
+                .blog-content-personal {
+                    margin: 0 auto 25px;
+                    &:after {
+                        display: none;
+                    }
+                    .blog-personal-img {
+                        margin: 0 auto;
+                        padding-top: 15px;
+                        width: 100px;
+                        &:after {
+                            width: 0;
+                        }
+                    }
+                    .blog-personal-name {
+                        span {
+                            font-size: 14px;
+                            display: block;
+                        }
+                        a {
+                            font-size: 14px;
+                        }
+                    }
+                    .blog-personal-date h4 {
+                        font-size: 15px;
+                    }
+                }
+                .blog-content-about {
+                    &:before {
+                        width: 0;
+                    }
+                    .blog-about-title {
+                        padding-top: 15px;
+                        h2 a {
+                            font-size: 19px;
+                        }
+                    }
+                    .blog-about-text p {
+                        font-size: 14px;
+                    }
+                    .blog-about-views ul {
+                        flex-direction: column;
+                        li {
+                            padding-bottom: 10px;
+                            i {
+                                font-size: 16px;
+                            }
+                            a {
+                                font-size: 15px;
+                            }
+                            p {
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+            .blog-btn a {
+                font-size: 12px;
+            }
+        }
+    }
+    header {
+        .container {
+            padding: 0;
+        }
+        .header-logo {
+            margin: 0 auto;
+        }
+        .header-menu {
+            position: relative;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 0;
+            padding: 5px 15px;
+            background: linear-gradient(to bottom, $color_iron_approx 0, $color_ghost_approx 37%, $color_aluminium_approx 71%, $color_santas_gray_approx 100%);
+            filter: progid:dximagetransform.microsoft.gradient(startcolorstr='$color_iron_approx', endcolorstr='$color_santas_gray_approx', gradienttype=0);
+            ul {
+                flex-direction: column;
+                position: absolute;
+                width: 100%;
+                z-index: 999;
+                top: 100%;
+                left: 0;
+                max-height: 0;
+                overflow: hidden;
+                //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                @include transition(all 0.5s);
+                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+                border-radius: 0 0 16px 16px;
+                &.active {
+                    max-height: 400px;
+                }
+                li {
+                    border-top: 1px solid $color_mirage_approx;
+                    border-right: none;
+                    border-left: none;
+                    &.m1 {
+                        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+                        border-radius: 0;
+                    }
+                    &.m6 {
+                        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+                        border-radius: 0 0 16px 16px;
+                    }
+                }
+            }
+            .header-btn {
+                display: block;
+                a {
+                    font-size: 25px;
+                    color: $color_mirage_approx;
+                }
+            }
+        }
+    }
+    footer .footer-content {
+        width: 100%;
+        ul {
+            flex-direction: column;
+            li {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media(min-width: 576px) and(max-width: 767px) {
+    .container {
+        width: 546px;
+    }
+    header {
+        .header-logo {
+            margin: 0 auto;
+        }
+        .header-top ul li {
+            font-size: 10px;
+        }
+        .header-menu ul li a {
+            padding-left: 33px;
+            padding-right: 5px;
+            font-size: 12px;
+        }
+    }
+    section {
+        &.blog {
+            .blog-content {
+                display: block;
+                .blog-content-personal {
+                    margin: 0 auto 25px;
+                    .blog-personal-img {
+                        margin: 0 auto;
+                        &:after {
+                            width: 0;
+                        }
+                    }
+                    &:after {
+                        display: none;
+                    }
+                }
+                .blog-content-about {
+                    .blog-about-img {
+                        margin-top: 20px;
+                    }
+                    &:before {
+                        width: 0;
+                    }
+                    .blog-about-title h2 a {
+                        font-size: 20px;
+                    }
+                    .blog-about-text p {
+                        font-size: 16px;
+                    }
+                }
+            }
+            .blog-btn a {
+                font-size: 14px;
+            }
+        }
+        &.post {
+            .post-title {
+                h2 {
+                    font-size: 24px;
+                }
+                ul {
+                    align-items: center;
+                }
+            }
+            .post-content {
+                .post-content-img {
+                    width: 100%;
+                }
+                .post-content-text p {
+                    font-size: 18px;
+                }
+                .post-content-about p {
+                    font-size: 14px;
+                }
+            }
+            .post-btns ul {
+                flex-direction: column;
+                li {
+                    padding-bottom: 15px;
+                    a {
+                        max-width: 181px;
+                    }
+                }
+            }
+            .post-link a {
+                font-size: 14px;
+            }
+        }
+    }
+    footer .footer-content {
+        width: 546px;
+        ul li {
+            font-size: 12px;
+        }
+    }
+}
+
+@media(min-width: 768px) and(max-width: 991px) {
+    .container {
+        width: 730px;
+    }
+    section {
+        &.blog {
+            .blog-content {
+                .blog-content-personal {
+                    .blog-personal-img {
+                        padding-top: 15px;
+                        width: 90px;
+                    }
+                    .blog-personal-name {
+                        a {
+                            font-size: 13px;
+                        }
+                        span {
+                            font-size: 13px;
+                        }
+                    }
+                    .blog-personal-date h4 {
+                        font-size: 13px;
+                    }
+                }
+                .blog-content-about {
+                    .blog-about-title {
+                        padding-top: 20px;
+                        padding-left: 20px;
+                        h2 a {
+                            font-size: 18px;
+                        }
+                    }
+                    .blog-about-text {
+                        padding: 10px 20px 0;
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+                    .blog-about-views ul li {
+                        i {
+                            font-size: 15px;
+                        }
+                        a {
+                            font-size: 14px;
+                        }
+                        p {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+            .blog-btn a {
+                font-size: 15px;
+            }
+        }
+        &.post {
+            .post-title {
+                h2 {
+                    font-size: 30px;
+                }
+                ul li {
+                    i {
+                        font-size: 15px;
+                    }
+                    a {
+                        font-size: 14px;
+                    }
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .post-content {
+                .post-content-img {
+                    width: 700px;
+                }
+                .post-content-text p {
+                    font-size: 20px;
+                }
+                .post-content-about p {
+                    font-size: 16px;
+                }
+            }
+            .post-btns ul li {
+                margin-bottom: 20px;
+                a {
+                    max-width: 181px;
+                }
+                &.facebook a {
+                    line-height: 0;
+                }
+                &.vk a {
+                    line-height: 0;
+                }
+            }
+        }
+    }
+    footer {
+        padding-top: 20px;
+        .footer-content {
+            width: 730px;
+            ul li {
+                font-size: 14px;
+            }
+        }
+    }
+    header .header-menu ul li a {
+        padding-left: 34px;
+        padding-right: 8px;
+        font-size: 18px;
+    }
+}
+
+@media(min-width: 992px) and(max-width: 1199px) {
+    .container {
+        width: 870px;
+    }
+    header .header-menu ul li a {
+        padding-left: 35px;
+        padding-right: 44px;
+    }
+    section.blog .blog-content {
+        .blog-content-personal {
+            .blog-personal-img {
+                width: 100px;
+            }
+            .blog-personal-name {
+                a {
+                    font-size: 15px;
+                }
+                span {
+                    font-size: 15px;
+                }
+            }
+            .blog-personal-date h4 {
+                font-size: 15px;
+            }
+        }
+        .blog-content-about {
+            &:before {
+                left: -90px;
+            }
+            .blog-about-title h2 a {
+                font-size: 20px;
+            }
+            .blog-about-text p {
+                font-size: 15px;
+            }
+            .blog-about-views ul li {
+                a {
+                    font-size: 15px;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    footer .footer-content {
+        width: 970px;
+    }
+}

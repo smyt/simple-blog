@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-16 11:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: apps/blog/admin.py:45
+msgid "Link"
+msgstr "Ссылка"
+
+#: apps/blog/admin.py:49 apps/blog/models.py:24 apps/blog/models.py:70
+msgid "Image"
+msgstr "Изображение"
+
+#: apps/blog/models.py:12
+msgid "Linked user"
+msgstr "Привязанный пользователь"
+
+#: apps/blog/models.py:17 apps/blog/models.py:53
+msgid "Name"
+msgstr "Имя"
+
+#: apps/blog/models.py:18 apps/blog/models.py:54
+msgid "Url name"
+msgstr "Имя для урла"
+
+#: apps/blog/models.py:19
+msgid "Position at work"
+msgstr "Должность"
+
+#: apps/blog/models.py:20
+msgid "Avatar"
+msgstr "Аватар"
+
+#: apps/blog/models.py:33
+msgid "Author"
+msgstr "Автор"
+
+#: apps/blog/models.py:34
+msgid "Authors"
+msgstr "Авторы"
+
+#: apps/blog/models.py:60
+msgid "Tag"
+msgstr "Тэг"
+
+#: apps/blog/models.py:61
+msgid "Tags"
+msgstr "Тэги"
+
+#: apps/blog/models.py:66
+msgid "Title"
+msgstr "Заголовок"
+
+#: apps/blog/models.py:67
+msgid "Url"
+msgstr ""
+
+#: apps/blog/models.py:68
+msgid "Short description"
+msgstr "Краткое описание"
+
+#: apps/blog/models.py:69
+msgid "Text"
+msgstr "Текст"
+
+#: apps/blog/models.py:73
+msgid "Views count"
+msgstr "Количество просмотров"
+
+#: apps/blog/models.py:74
+msgid "Real views count"
+msgstr "Реальное количество просмотров"
+
+#: apps/blog/models.py:75
+msgid "Date published"
+msgstr "Дата публикации"
+
+#: apps/blog/models.py:76
+msgid "Is publish?"
+msgstr "Опубликовано?"
+
+#: apps/blog/models.py:85
+msgid "Article"
+msgstr "Статья"
+
+#: apps/blog/models.py:86
+msgid "Articles"
+msgstr "Статьи"
+
+#: smyt_blog/settings.py:198
+msgid "Russian"
+msgstr "Русский"
+
+#: smyt_blog/settings.py:199
+msgid "English"
+msgstr "Английский"
+
+#: templates/_base.html:14
+msgid "Blog"
+msgstr "Блог"
+
+#: templates/_base.html:76
+msgid "Main page"
+msgstr "Главная"
+
+#: templates/_base.html:77
+msgid "Projects"
+msgstr "Проекты"
+
+#: templates/_base.html:78
+msgid "Services"
+msgstr "Услуги"
+
+#: templates/_base.html:79
+msgid "Support"
+msgstr "Поддержка"
+
+#: templates/_base.html:80
+msgid "Company"
+msgstr "Компания"
+
+#: templates/_base.html:81
+msgid "Contacts"
+msgstr "Контакты"
+
+#: templates/_base.html:93
+msgid "Call us"
+msgstr "Позвоните нам"
+
+#: templates/_base.html:93
+msgid "in Saint Petersburg"
+msgstr "в Санкт Петербурге"
+
+#: templates/_base.html:94
+msgid "Develop by SMYT company"
+msgstr "Разработано в компании SMYT"
+
+#: templates/index.html:12
+msgid "View previous results"
+msgstr "Посмотреть предыдущие результаты"
+
+#: templates/post.html:79
+msgid "View all posts"
+msgstr "Посмотреть все посты"
